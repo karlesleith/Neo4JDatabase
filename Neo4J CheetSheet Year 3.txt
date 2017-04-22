@@ -1,0 +1,333 @@
+	delete all nodes in database
+MATCH (n)
+OPTIONAL MATCH (n)-[r]-()
+WITH n,r LIMIT 50000
+DELETE n,r
+RETURN count(n) as deletedNodesCount
+
+	delete a single node (x = node id)
+match (n) where id(n) = x detach delete
+
+	Create all day nodes
+
+create (: Day {name: 'Monday'}),
+(: Day {name: 'Tuesday'}),
+(: Day {name: 'Wednesday'}),
+(: Day {name: 'Thursday'}),
+(: Day {name: 'Friday'})
+
+	Return all nodes
+
+Match (n) return n
+
+
+	Create all Lecturer nodes
+
+create (: Lecturer {name: 'Deirdre ODonovan'}),
+(: Lecturer {name: 'Damien Costello'}),
+(: Lecturer {name: 'Gerard Harrison'}),
+(: Lecturer {name: 'Martin Hynes'}),
+(: Lecturer {name: 'Ian McLoughlin'})
+
+	Return all nodes
+
+Match (n: Lecturer) return n
+
+	Create all Module nodes
+
+create (: Module {name: 'Database Management'}),
+(: Module {name: 'Mobile Applications 2'}),
+(: Module {name: 'Professional Practice in IT'}),
+(: Module {name: 'Server Side RAD'}),
+(: Module {name: 'Software Testing'}),
+(: Module {name: 'Graph Theory'})
+
+	Return all nodes
+
+Match (n: Module) return n
+
+	Create Relationships between nodes
+
+match (l: Lecturer{name: 'Deirdre ODonovan'}), (m:Module{name: 'Database Management'})
+create (l)-[:Teaches]->(m)
+
+match (l: Lecturer{name: 'Damien Costello'}), (m:Module{name: 'Mobile Applications 2'})
+create (l)-[:Teaches]->(m)
+
+match (l: Lecturer{name: 'Damien Costello'}), (m:Module{name: 'Professional Practice in IT'})
+create (l)-[:Teaches]->(m)
+
+match (l: Lecturer{name: 'Gerard Harrison'}), (m:Module{name: 'Server Side RAD'})
+create (l)-[:Teaches]->(m)
+
+match (l: Lecturer{name: 'Martin Hynes'}), (m:Module{name: 'Software Testing'})
+create (l)-[:Teaches]->(m)
+
+match (l: Lecturer{name: 'Ian McLoughlin'}), (m:Module{name: 'Graph Theory'})
+create (l)-[:Teaches]->(m)
+
+
+Match (n) return n
+
+	Create Years 
+
+create (: Year {name: 'First Year'}),
+(: Year {name: 'Second Year'}),
+(: Year {name: 'Third Year'}),
+(: Year {name: 'Forth Year'})
+
+	Create Course
+
+create (: Course {name: 'Software Developement'})
+
+	Create relationship between nodes
+
+match (c: Course {name: 'Software Developement'}), (y: Year)
+create (c)-[:Has]->(y)
+
+match (c: Year {name: 'Third Year'}), (y: Module)
+create (c)-[:Has]->(y)
+
+	Create Timeslots
+
+create (: TimeSlot {name: '09:00 - 10:00'}),
+(: TimeSlot {name: '10:00 - 11:00'}),
+(: TimeSlot {name: '11:00 - 12:00'}),
+(: TimeSlot {name: '12:00 - 13:00'}),
+(: TimeSlot {name: '13:00 - 14:00'}),
+(: TimeSlot {name: '14:00 - 15:00'}),
+(: TimeSlot {name: '15:00 - 16:00'}),
+(: TimeSlot {name: '16:00 - 17:00'}),
+(: TimeSlot {name: '17:00 - 18:00'})
+
+	Create Relationships between nodes
+
+match (d:Day{name: 'Monday'}), (t:TimeSlot)
+create (d)-[:TIMESLOT]->(t)
+
+match (d:Day{name: 'Tuesday'}), (t:TimeSlot)
+create (d)-[:TIMESLOT]->(t)
+
+match (d:Day{name: 'Wednesday'}), (t:TimeSlot)
+create (d)-[:TIMESLOT]->(t)
+
+match (d:Day{name: 'Thursday'}), (t:TimeSlot)
+create (d)-[:TIMESLOT]->(t)
+
+match (d:Day{name: 'Friday'}), (t:TimeSlot)
+create (d)-[:TIMESLOT]->(t)
+
+	Create room nodes
+create (: Room {name:'PF01'}),
+(: Room {name:'PF02'}),
+(: Room {name:'PF03'}),
+(: Room {name:'PF04'}),
+(: Room {name:'PF05'}),
+(: Room {name:'PF06'}),
+(: Room {name:'PF07'}),
+(: Room {name:'PF08'}),
+(: Room {name:'PF09'}),
+(: Room {name:'PF10'}),
+(: Room {name:'G0145'}),
+(: Room {name:'G0153'}),
+(: Room {name:'G0154'}),
+(: Room {name:'G0156'}),
+(: Room {name:'G0157'}),
+(: Room {name:'G0158'}),
+(: Room {name:'G0159'}),
+(: Room {name:'G0162'}),
+(: Room {name:'G0165'}),
+(: Room {name:'G0208'}),
+(: Room {name:'G0209'}),
+(: Room {name:'G0223'}),
+(: Room {name:'G0224'}),
+(: Room {name:'G0225'}),
+(: Room {name:'G0226'}),
+(: Room {name:'G0227'}),
+(: Room {name:'G0228'}),
+(: Room {name:'G0229'}),
+(: Room {name:'G0230'}),
+(: Room {name:'G0231'}),
+(: Room {name:'G0347'}),
+(: Room {name:'G0351'}),
+(: Room {name:'G0364'}),
+(: Room {name:'G0365'}),
+(: Room {name:'G0366'}),
+(: Room {name:'G0367a'}),
+(: Room {name:'G0367b'}),
+(: Room {name:'G0368'}),
+(: Room {name:'G0369'}),
+(: Room {name:'G0370'}),
+(: Room {name:'G0373'}),
+(: Room {name:'G0374'}),
+(: Room {name:'G0375'}),
+(: Room {name:'G0376'}),
+(: Room {name:'G0377'}),
+(: Room {name:'G0378'}),
+(: Room {name:'G0379'}),
+(: Room {name:'G0380'}),
+(: Room {name:'G0436'}),
+(: Room {name:'G0478'}),
+(: Room {name:'G0479'}),
+(: Room {name:'G0480'}),
+(: Room {name:'G0481'}),
+(: Room {name:'G0482'}),
+(: Room {name:'G0483'}),
+(: Room {name:'G0484'}),
+(: Room {name:'G0903'}),
+(: Room {name:'G0938'}),
+(: Room {name:'G0939'}),
+(: Room {name:'G0940'}),
+(: Room {name:'G0941'}),
+(: Room {name:'G0994'}),
+(: Room {name:'G0995'}),
+(: Room {name:'G0996'}),
+(: Room {name:'G0997'}),
+(: Room {name:'G1000'}),
+(: Room {name:'G1031'}),
+(: Room {name:'G1032'}),
+(: Room {name:'G1033'}),
+(: Room {name:'G1034'}),
+(: Room {name:'G1035'}),
+(: Room {name:'G1036'}),
+(: Room {name:'G1039'}),
+(: Room {name:'G1041'})
+
+	Create Relationships between Room and TimeSlots
+****MONDAY****
+
+match (c: Module {name: 'Graph Theory'}), (y: Room{name: 'G0145'})
+create (c)-[:Has]->(y)
+match  (y: Room{name: 'G0145'}),(c: TimeSlot {name: '09:00 - 10:00'})
+create (y)-[:On_At]->(c)
+
+match (c: Module {name: 'Database Management'}), (y: Room{name: 'G0994'})
+create (c)-[:Has]->(y)
+match  (y: Room{name: 'G0994'}),(c: TimeSlot {name: '10:00 - 11:00'})
+create (y)-[:On_At]->(c)
+
+match (c: Module {name: 'Mobile Applications 2'}), (y: Room{name: 'G0223'})
+create (c)-[:Has]->(y)
+match  (y: Room{name: 'G0223'}),(c: TimeSlot {name: '12:00 - 13:00'})
+create (y)-[:On_At]->(c)
+match  (y: Room{name: 'G0223'}),(c: TimeSlot {name: '13:00 - 14:00'})
+create (y)-[:On_At]->(c)
+
+match (c: Module {name: 'Software Testing'}), (y: Room{name: 'G0481'})
+create (c)-[:Has]->(y)
+match  (y: Room{name: 'G0481'}),(c: TimeSlot {name: '16:00 - 17:00'})
+create (y)-[:On_At]->(c)
+match  (y: Room{name: 'G0481'}),(c: TimeSlot {name: '17:00 - 18:00'})
+create (y)-[:On_At]->(c)
+
+match (c: Module {name: 'Server Side RAD'}), (y: Room{name: 'G0436'})
+create (c)-[:Has]->(y)
+match  (y: Room{name: 'G0436'}),(c: TimeSlot {name: '16:00 - 17:00'})
+create (y)-[:On_At]->(c)
+match  (y: Room{name: 'G0436'}),(c: TimeSlot {name: '17:00 - 18:00'})
+create (y)-[:On_At]->(c)
+
+****Tuesday****
+match (c: Module {name: 'Software Testing'}), (y: Room{name: 'G0436'})
+create (c)-[:Has]->(y)
+match  (y: Room{name: 'G0436'}),(c: TimeSlot {name: '09:00 - 10:00'})
+create (y)-[:On_At]->(c)
+match  (y: Room{name: 'G0436'}),(c: TimeSlot {name: '11:00 - 12:00'})
+create (y)-[:On_At]->(c)
+
+match (c: Module {name: 'Database Management'}), (y: Room{name: 'G0481'})
+create (c)-[:Has]->(y)
+match  (y: Room{name: 'G0481'}),(c: TimeSlot {name: '09:00 - 10:00'})
+create (y)-[:On_At]->(c)
+match  (y: Room{name: 'G0481'}),(c: TimeSlot {name: '11:00 - 12:00'})
+create (y)-[:On_At]->(c)
+
+match (c: Module {name: 'Mobile Applications 2'}), (y: Room{name: 'G0483'})
+create (c)-[:Has]->(y)
+match  (y: Room{name: 'G0483'}),(c: TimeSlot {name: '11:00 - 12:00'})
+create (y)-[:On_At]->(c)
+match  (y: Room{name: 'G0483'}),(c: TimeSlot {name: '12:00 - 13:00'})
+create (y)-[:On_At]->(c)
+
+match (c: Module {name: 'Graph Theory'}), (y: Room{name: 'G0379'})
+create (c)-[:Has]->(y)
+match  (y: Room{name: 'G0379'}),(c: TimeSlot {name: '12:00 - 13:00'})
+create (y)-[:On_At]->(c)
+
+match (c: Module {name: 'Software Testing'}), (y: Room{name: 'G0436'})
+create (c)-[:Has]->(y)
+match  (y: Room{name: 'G0436'}),(c: TimeSlot {name: '14:00 - 15:00'})
+create (y)-[:On_At]->(c)
+match  (y: Room{name: 'G0436'}),(c: TimeSlot {name: '15:00 - 16:00'})
+create (y)-[:On_At]->(c)
+
+
+match (c: Module {name: 'Server Side RAD'}), (y: Room{name: 'G0436'})
+create (c)-[:Has]->(y)
+match  (y: Room{name: 'G0436'}),(c: TimeSlot {name: '16:00 - 17:00'})
+create (y)-[:On_At]->(c)
+match  (y: Room{name: 'G0436'}),(c: TimeSlot {name: '17:00 - 18:00'})
+create (y)-[:On_At]->(c)
+
+****Wednesday****
+
+match (c: Module {name: 'Graph Theory'}), (y: Room{name: 'G0162'})
+create (c)-[:Has]->(y)
+match  (y: Room{name: 'G0162'}),(c: TimeSlot {name: '09:00 - 10:00'})
+create (y)-[:On_At]->(c)
+
+match (c: Module {name: 'Professional Practice in IT'}), (y: Room{name: 'G0208'})
+create (c)-[:Has]->(y)
+match  (y: Room{name: 'G0208'}),(c: TimeSlot {name: '10:00 - 11:00'})
+create (y)-[:On_At]->(c)
+
+match (c: Module {name: 'Graph Theory'}), (y: Room{name: 'G0997'})
+create (c)-[:Has]->(y)
+match  (y: Room{name: 'G0997'}),(c: TimeSlot {name: '13:00 - 14:00'})
+create (y)-[:On_At]->(c)
+
+match (c: Module {name: 'Software Testing'}), (y: Room{name: 'G0994'})
+create (c)-[:Has]->(y)
+match  (y: Room{name: 'G0994'}),(c: TimeSlot {name: '14:00 - 15:00'})
+create (y)-[:On_At]->(c)
+
+match (c: Module {name: 'Database Management'}), (y: Room{name: 'G0995'})
+create (c)-[:Has]->(y)
+match  (y: Room{name: 'G0995'}),(c: TimeSlot {name: '16:00 - 17:00'})
+create (y)-[:On_At]->(c)
+
+****Thursday****
+
+match (c: Module {name: 'Mobile Applications 2'}), (y: Room{name: 'PF10'})
+create (c)-[:Has]->(y)
+match  (y: Room{name: 'PF10'}),(c: TimeSlot {name: '09:00 - 10:00'})
+create (y)-[:On_At]->(c)
+match  (y: Room{name: 'PF10'}),(c: TimeSlot {name: '10:00 - 11:00'})
+create (y)-[:On_At]->(c)
+match  (y: Room{name: 'PF10'}),(c: TimeSlot {name: '11:00 - 12:00'})
+create (y)-[:On_At]->(c)
+match  (y: Room{name: 'PF10'}),(c: TimeSlot {name: '12:00 - 13:00'})
+create (y)-[:On_At]->(c)
+
+match (c: Module {name: 'Server Side RAD'}), (y: Room{name: 'G0436'})
+create (c)-[:Has]->(y)
+match  (y: Room{name: 'G0436'}),(c: TimeSlot {name: '14:00 - 15:00'})
+create (y)-[:On_At]->(c)
+match  (y: Room{name: 'G0436'}),(c: TimeSlot {name: '15:00 - 16:00'})
+create (y)-[:On_At]->(c)
+
+****Friday****
+match (c: Module {name: 'Database Management'}), (y: Room{name: 'G0482'})
+create (c)-[:Has]->(y)
+match  (y: Room{name: 'G0482'}),(c: TimeSlot {name: '09:00 - 10:00'})
+create (y)-[:On_At]->(c)
+match  (y: Room{name: 'G0482'}),(c: TimeSlot {name: '10:00 - 11:00'})
+create (y)-[:On_At]->(c)
+
+match (c: Module {name: 'Graph Theory'}), (y: Room{name: 'G0208'})
+create (c)-[:Has]->(y)
+match  (y: Room{name: 'G0208'}),(c: TimeSlot {name: '11:00 - 12:00'})
+create (y)-[:On_At]->(c)
+
+
+

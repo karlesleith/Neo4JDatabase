@@ -1,0 +1,201 @@
+	Creating Modules
+
+create (: Module {name: 'Database Management YR2'}),
+(: Module {name: 'ADV. Procedural Programming'}),
+(: Module {name: 'Mobile Apps 1'}),
+(: Module {name: 'Networking Tech'}),
+(: Module {name: 'Data Struct'}),
+(: Module {name: 'ACCTG'}),
+(: Module {name: 'Project Management'})
+
+match (c: Year {name: 'Second Year'}), (y: Module{name: 'Database Management YR2'})
+create (c)-[:Has]->(y)
+match (c: Year {name: 'Second Year'}), (y: Module{name: 'ADV. Procedural Programming'})
+create (c)-[:Has]->(y)
+match (c: Year {name: 'Second Year'}), (y: Module{name: 'Mobile Apps 1'})
+create (c)-[:Has]->(y)
+match (c: Year {name: 'Second Year'}), (y: Module{name: 'Networking Tech'})
+create (c)-[:Has]->(y)
+match (c: Year {name: 'Second Year'}), (y: Module{name: 'Data Struct'})
+create (c)-[:Has]->(y)
+match (c: Year {name: 'Second Year'}), (y: Module{name: 'ACCTG'})
+create (c)-[:Has]->(y)
+match (c: Year {name: 'Second Year'}), (y: Module{name: 'Project Management'})
+create (c)-[:Has]->(y)
+
+	Create New Lectures
+
+create (: Lecturer{name: 'Naomi Hurley'})
+
+match (l: Lecturer{name: 'Naomi Hurley'}), (m:Module{name: 'Database Management YR2'})
+create (l)-[:Teaches]->(m)
+
+
+match (l: Lecturer{name: 'Martin Hynes'}), (m:Module{name: 'ADV. Procedural Programming'})
+create (l)-[:Teaches]->(m)
+
+match (l: Lecturer{name: 'Ian McLoughlin'}), (m:Module{name: 'Mobile Apps 1'})
+create (l)-[:Teaches]->(m)
+
+match (l: Lecturer{name: 'Deirdre ODonovan'}), (m:Module{name: 'Networking Tech'})
+create (l)-[:Teaches]->(m)
+
+
+create (: Lecturer{name: 'John Healy'})
+
+match (l: Lecturer{name: 'John Healy'}), (m:Module{name: 'Data Struct'})
+create (l)-[:Teaches]->(m)
+
+create (: Lecturer{name: 'Annette Cosgrove'})
+
+match (l: Lecturer{name: 'Annette Cosgrove'}), (m:Module{name: 'ACCTG'})
+create (l)-[:Teaches]->(m)
+
+match (l: Lecturer{name: 'Annette Cosgrove'}), (m:Module{name: 'Project Management'})
+create (l)-[:Teaches]->(m)
+
+
+match (l: Lecturer{name: 'Gerard Harrison'}), (m:Module{name: 'Project Management'})
+create (l)-[:Teaches]->(m)
+
+****MONDAY****
+match (c: Module {name: 'Database Management YR2'}), (y: Room{name: 'G0483'})
+create (c)-[:Has]->(y)
+match  (y: Room{name: 'G0483'}),(c: TimeSlot {name: '09:00 - 10:00'})
+create (y)-[:On_At]->(c)
+match  (y: Room{name: 'G0483'}),(c: TimeSlot {name: '10:00 - 11:00'})
+create (y)-[:On_At]->(c)
+
+match (c: Module {name: 'ADV. Procedural Programming'}), (y: Room{name: 'G0436'})
+create (c)-[:Has]->(y)
+match  (y: Room{name: 'G0436'}),(c: TimeSlot {name: '09:00 - 10:00'})
+create (y)-[:On_At]->(c)
+match  (y: Room{name: 'G0436'}),(c: TimeSlot {name: '10:00 - 11:00'})
+create (y)-[:On_At]->(c)
+
+match (c: Module {name: 'Mobile Apps 1'}), (y: Room{name: 'G0223'})
+create (c)-[:Has]->(y)
+match  (y: Room{name: 'G0223'}),(c: TimeSlot {name: '11:00 - 12:00'})
+create (y)-[:On_At]->(c)
+
+
+match (c: Module {name: 'Networking Tech'}), (y: Room{name: 'G0996'})
+create (c)-[:Has]->(y)
+match  (y: Room{name: 'G0996'}),(c: TimeSlot {name: '12:00 - 13:00'})
+create (y)-[:On_At]->(c)
+
+
+match (c: Module {name: 'Data Struct'}), (y: Room{name: 'G0436'})
+create (c)-[:Has]->(y)
+match  (y: Room{name: 'G0436'}),(c: TimeSlot {name: '14:00 - 15:00'})
+create (y)-[:On_At]->(c)
+
+
+match (c: Module {name: 'Data Struct'}), (y: Room{name: 'G0364'})
+create (c)-[:Has]->(y)
+match  (y: Room{name: 'G0364'}),(c: TimeSlot {name: '15:00 - 16:00'})
+create (y)-[:On_At]->(c)
+
+**Tuesday**
+match (c: Module {name: 'ACCTG'}), (y: Room{name: 'G0480'})
+create (c)-[:Has]->(y)
+match  (y: Room{name: 'G0480'}),(c: TimeSlot {name: '10:00 - 11:00'})
+create (y)-[:On_At]->(c)
+
+match (c: Module {name: 'Project Management'}), (y: Room{name: 'G0940'})
+create (c)-[:Has]->(y)
+match  (y: Room{name: 'G0940'}),(c: TimeSlot {name: '10:00 - 11:00'})
+create (y)-[:On_At]->(c)
+match  (y: Room{name: 'G0940'}),(c: TimeSlot {name: '11:00 - 12:00'})
+create (y)-[:On_At]->(c)
+
+match (c: Module {name: 'Networking Tech'}), (y: Room{name: 'G0939'})
+create (c)-[:Has]->(y)
+match  (y: Room{name: 'G0939'}),(c: TimeSlot {name: '12:00 - 13:00'})
+create (y)-[:On_At]->(c)
+
+match (c: Module {name: 'Mobile Apps 1'}), (y: Room{name: 'G0480'})
+create (c)-[:Has]->(y)
+match  (y: Room{name: 'G0480'}),(c: TimeSlot {name: '17:00 - 18:00'})
+create (y)-[:On_At]->(c)
+
+***Wednesday***
+match (c: Module {name: 'Data Struct'}), (y: Room{name: 'G0484'})
+create (c)-[:Has]->(y)
+match  (y: Room{name: 'G0484'}),(c: TimeSlot {name: '09:00 - 10:00'})
+create (y)-[:On_At]->(c)
+
+match (c: Module {name: 'Networking Tech'}), (y: Room{name: 'G0482'})
+create (c)-[:Has]->(y)
+match  (y: Room{name: 'G0482'}),(c: TimeSlot {name: '09:00 - 10:00'})
+create (y)-[:On_At]->(c)
+match  (y: Room{name: 'G0482'}),(c: TimeSlot {name: '10:00 - 11:00'})
+create (y)-[:On_At]->(c)
+
+match (c: Module {name: 'Project Management'}), (y: Room{name: 'G0436'})
+create (c)-[:Has]->(y)
+match  (y: Room{name: 'G0436'}),(c: TimeSlot {name: '10:00 - 11:00'})
+create (y)-[:On_At]->(c)
+match  (y: Room{name: 'G0436'}),(c: TimeSlot {name: '11:00 - 12:00'})
+create (y)-[:On_At]->(c)
+
+match (c: Module {name: 'Database Management YR2'}), (y: Room{name: 'G0481'})
+create (c)-[:Has]->(y)
+match  (y: Room{name: 'G0481'}),(c: TimeSlot {name: '12:00 - 13:00'})
+create (y)-[:On_At]->(c)
+match  (y: Room{name: 'G0481'}),(c: TimeSlot {name: '13:00 - 14:00'})
+create (y)-[:On_At]->(c)
+
+
+
+match  (y: Room{name: 'G0482'}),(c: TimeSlot {name: '12:00 - 13:00'})
+create (y)-[:On_At]->(c)
+match  (y: Room{name: 'G0482'}),(c: TimeSlot {name: '13:00 - 14:00'})
+create (y)-[:On_At]->(c)
+
+match (c: Module {name: 'ACCTG'}), (y: Room{name: 'G0484'})
+create (c)-[:Has]->(y)
+match  (y: Room{name: 'G0484'}),(c: TimeSlot {name: '14:00 - 15:00'})
+create (y)-[:On_At]->(c)
+
+
+match (c: Module {name: 'Mobile Apps 1'}), (y: Room{name: 'G0478'})
+create (c)-[:Has]->(y)
+match  (y: Room{name: 'G0478'}),(c: TimeSlot {name: '14:00 - 15:00'})
+create (y)-[:On_At]->(c)
+match  (y: Room{name: 'G0478'}),(c: TimeSlot {name: '15:00 - 16:00'})
+create (y)-[:On_At]->(c)
+
+match (c: Module {name: 'Project Management'}), (y: Room{name: 'G0481'})
+create (c)-[:Has]->(y)
+match  (y: Room{name: 'G0481'}),(c: TimeSlot {name: '15:00 - 16:00'})
+create (y)-[:On_At]->(c)
+
+match (c: Module {name: 'Data Struct'}), (y: Room{name: 'G0484'})
+create (c)-[:Has]->(y)
+match  (y: Room{name: 'G0484'}),(c: TimeSlot {name: '15:00 - 16:00'})
+create (y)-[:On_At]->(c)
+
+**Thursday**
+match (c: Module {name: 'Data Struct'}), (y: Room{name: 'G0940'})
+create (c)-[:Has]->(y)
+match  (y: Room{name: 'G0940'}),(c: TimeSlot {name: '09:00 - 10:00'})
+create (y)-[:On_At]->(c)
+
+match (c: Module {name: 'ADV. Procedural Programming'}), (y: Room{name: 'G0996'})
+create (c)-[:Has]->(y)
+match  (y: Room{name: 'G0996'}),(c: TimeSlot {name: '10:00 - 11:00'})
+create (y)-[:On_At]->(c)
+
+match (c: Module {name: 'Mobile Apps 1'}), (y: Room{name: 'G0223'})
+create (c)-[:Has]->(y)
+match  (y: Room{name: 'G0223'}),(c: TimeSlot {name: '17:00 - 18:00'})
+create (y)-[:On_At]->(c)
+
+**Friday** 
+match (c: Module {name: 'Database Management YR2'}), (y: Room{name: 'G0996'})
+create (c)-[:Has]->(y)
+match  (y: Room{name: 'G0996'}),(c: TimeSlot {name: '09:00 - 10:00'})
+create (y)-[:On_At]->(c)
+match  (y: Room{name: 'G0996'}),(c: TimeSlot {name: '10:00 - 11:00'})
+create (y)-[:On_At]->(c)
