@@ -28,3 +28,21 @@ When I was finished I deleted the remaining room nodes that had no relationships
 
 ![Screenshot3](Graph.PNG)
 
+## How To Use the Database
+
+Here I'm looking to find what modules the Lecturer "Ian McLoughlin" teaches, to do that I'll use this syntax:
+
+ **match (n: Lecturer{name: 'Ian McLoughlin'}) -[*..2]-(Year)
+return DISTINCT n, Year**
+
+Above I'm looking to see how the node for "Ian McLoughlin" relates to any node of type "Year", the "*..2" refers to the depth of my query from my starting node.
+
+![Query1](Query.PNG)
+
+My Result ended up looking like this.
+My node Ian is at the center and the path it will take away from him, is levels deep.
+
+
+
+
+
