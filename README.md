@@ -40,7 +40,14 @@ Above I'm looking to see how the node for "Ian McLoughlin" relates to any node o
 ![Query1](Query.PNG)
 
 My Result ended up looking like this.
-My node Ian is at the center and the path it will take away from him, is levels deep.
+The node "Ian" is at the center and the path it will take away from him, is 2 levels deep.
+
+Now I want to find the shorest path between the nodes for "Ian McLoughlin" and "Martin Hynes"
+
+**match p =ShortestPath((n: Lecturer{name: 'Ian McLoughlin'}) -[*]- (b: Lecturer{name: 'Martin Hynes'}))
+return p** 
+
+It shows they both have a lecture on in room "G0223", and thats what connects them together.
 
 
 
