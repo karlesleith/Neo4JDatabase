@@ -26,3 +26,5 @@ After creating the Nodes, I continued to create the relationships between, I cre
 
 When I was finished I deleted the remaining room nodes that had no relationships.
 
+![Screenshot3](Graph.PNG)
+
