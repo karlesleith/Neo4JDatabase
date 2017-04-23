@@ -55,6 +55,14 @@ return p**
 It shows they both have a lecture on in room "G0223", and thats what connects them together.
 
 
+### Query 3
+
+Finally what if i want to see all the nodes that relate to Graph Theory?
+
+**match (n: Module{name: 'Graph Theory'}) -[*..2]-(course)
+return DISTINCT n, course**
+
+![Query3](Query3.PNG)
 
 
 
