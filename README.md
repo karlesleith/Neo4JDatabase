@@ -30,6 +30,7 @@ When I was finished I deleted the remaining room nodes that had no relationships
 
 ## How To Use the Database
 
+### Query 1
 Here I'm looking to find what modules the Lecturer "Ian McLoughlin" teaches, to do that I'll use this syntax:
 
  **match (n: Lecturer{name: 'Ian McLoughlin'}) -[*..2]-(Year)
@@ -42,10 +43,14 @@ Above I'm looking to see how the node for "Ian McLoughlin" relates to any node o
 My Result ended up looking like this.
 The node "Ian" is at the center and the path it will take away from him, is 2 levels deep.
 
+### Query 2
+
 Now I want to find the shorest path between the nodes for "Ian McLoughlin" and "Martin Hynes"
 
 **match p =ShortestPath((n: Lecturer{name: 'Ian McLoughlin'}) -[*]- (b: Lecturer{name: 'Martin Hynes'}))
 return p** 
+
+![Query2](Query2.PNG)
 
 It shows they both have a lecture on in room "G0223", and thats what connects them together.
 
